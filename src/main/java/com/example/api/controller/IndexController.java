@@ -75,4 +75,10 @@ public class IndexController {
     return new ResponseEntity(list, HttpStatus.OK);
 
   }
+
+  @GetMapping(value = "/{id}/relatorio/{dias}", produces = "application/json")
+  public ResponseEntity relatorio(@PathVariable(value = "id") Long id, @PathVariable(value = "dias") Long dias) {
+    
+    return new ResponseEntity("Relatorio do usuario: " + id + " para os  " + dias + " anteriores", HttpStatus.OK);
+  }
 }
