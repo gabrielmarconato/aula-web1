@@ -24,6 +24,9 @@ public class Usuario implements Serializable {
   @OneToMany(mappedBy = "usuario", orphanRemoval = true, cascade = CascadeType.ALL)
   private List<Telefone> telefones = new ArrayList<Telefone>();
 
+  @OneToMany(mappedBy = "usuario", orphanRemoval = true, cascade = CascadeType.ALL)
+  private List<Operacao> operacoes = new ArrayList<Operacao>();
+
   public long getId() {
     return id;
   }
@@ -62,6 +65,14 @@ public class Usuario implements Serializable {
 
   public void setTelefones(List<Telefone> telefones) {
     this.telefones = telefones;
+  }
+
+  public List<Operacao> getOperacoes() {
+    return operacoes;
+  }
+
+  public void setOperacoes(List<Operacao> operacoes) {
+    this.operacoes = operacoes;
   }
   
 }
