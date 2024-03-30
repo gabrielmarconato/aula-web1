@@ -2,7 +2,7 @@ package com.example.api.model;
 
 import java.time.LocalDateTime;
 
-public class OpRecorrente {
+public class OpRecorrente extends Operacao {
     private float valorRec;
     private LocalDateTime dataInicial;
     private long intervalo; // Em dias

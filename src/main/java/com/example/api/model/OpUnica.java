@@ -1,7 +1,7 @@
 package com.example.api.model;
 import java.time.LocalDateTime;
 
-public class OpUnica {
+public class OpUnica extends Operacao {
     private float valor;
     private LocalDateTime data;
 
