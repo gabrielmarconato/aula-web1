@@ -1,6 +1,7 @@
 package com.example.api.model;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,12 +18,13 @@ public class Usuario implements Serializable {
   @GeneratedValue(strategy = GenerationType.AUTO)
   private Long id;
 
-  private String login;
+  private String email;
   private String senha;
   private String nome;
+  private LocalDateTime nascimento;
+  private String CPF;
+  private float valorConta;
 
-  @OneToMany(mappedBy = "usuario", orphanRemoval = true, cascade = CascadeType.ALL)
-  private List<Telefone> telefones = new ArrayList<Telefone>();
 
   @OneToMany(mappedBy = "usuario", orphanRemoval = true, cascade = CascadeType.ALL)
   private List<Operacao> operacoes = new ArrayList<Operacao>();
@@ -31,8 +33,8 @@ public class Usuario implements Serializable {
     return id;
   }
 
-  public String getLogin() {
-    return login;
+  public String getEmail() {
+    return email;
   }
 
   public String getNome() {
@@ -47,8 +49,8 @@ public class Usuario implements Serializable {
     this.id = id;
   }
 
-  public void setLogin(String login) {
-    this.login = login;
+  public void setEmail(String email) {
+    this.email = email;
   }
 
   public void setNome(String nome) {
@@ -59,20 +61,36 @@ public class Usuario implements Serializable {
     this.senha = senha;
   }
 
-  public List<Telefone> getTelefones() {
-    return telefones;
-  }
-
-  public void setTelefones(List<Telefone> telefones) {
-    this.telefones = telefones;
-  }
-
   public List<Operacao> getOperacoes() {
     return operacoes;
   }
 
   public void setOperacoes(List<Operacao> operacoes) {
     this.operacoes = operacoes;
+  }
+
+  public String getCPF() {
+      return CPF;
+  }
+
+  public void setCPF(String cPF) {
+      CPF = cPF;
+  }
+
+  public LocalDateTime getNascimento() {
+      return nascimento;
+  }
+
+  public void setNascimento(LocalDateTime nascimento) {
+      this.nascimento = nascimento;
+  }
+
+  public float getValorConta() {
+      return valorConta;
+  }
+
+  public void setValorConta(float valorConta) {
+      this.valorConta = valorConta;
   }
   
 }
